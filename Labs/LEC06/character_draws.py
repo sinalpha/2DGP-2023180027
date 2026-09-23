@@ -23,7 +23,13 @@ def move_circle():
 
 def move_rectangle():
     print("Rectangle is moving")
-    pass
+    corners = [
+        (CENTER_X - SIZE, CENTER_Y - SIZE),
+        (CENTER_X + SIZE, CENTER_Y - SIZE),
+        (CENTER_X + SIZE, CENTER_Y + SIZE),
+        (CENTER_X - SIZE, CENTER_Y + SIZE),
+        (CENTER_X - SIZE, CENTER_Y - SIZE),
+    ]
 
 def move_triangle():
     print("Triangle is moving")
