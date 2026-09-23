@@ -34,6 +34,10 @@ def move_rectangle():
     for i in range(len(corners) - 1):
         x1, y1 = corners[i]
         x2, y2 = corners[i + 1]
+        for step in range(steps_per_side):
+            t = step / steps_per_side
+            x = x1 + (x2 - x1) * t
+            y = y1 + (y2 - y1) * t
 
 def move_triangle():
     print("Triangle is moving")
