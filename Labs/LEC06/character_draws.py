@@ -12,8 +12,12 @@ SIZE = 100
 
 def move_circle():
     print("Circle is moving")
+    angle = 0
+    rad = math.radians(angle)
+    x = CENTER_X + SIZE * math.cos(rad)
+    y = CENTER_Y + SIZE * math.sin(rad)
     clear_canvas()
-    character.draw(400, 300)
+    character.draw(x, y)
     update_canvas()
     pass
 
