@@ -8,6 +8,7 @@ open_canvas(800, 600)
 character = load_image('character.png')
 
 CENTER_X, CENTER_Y = 400, 300
+SIZE = 100
 
 def move_circle():
     print("Circle is moving")
