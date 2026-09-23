@@ -40,6 +40,8 @@ def move_along_path(corners, steps_per_side):
 def move_circle():
     print("Circle is moving")
     for angle in range(0, 360, 2):
+        if not running:
+            return
         rad = math.radians(angle)
         x = CENTER_X + SIZE * math.cos(rad)
         y = CENTER_Y + SIZE * math.sin(rad)
