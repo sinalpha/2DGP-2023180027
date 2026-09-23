@@ -30,6 +30,7 @@ def move_rectangle():
         (CENTER_X - SIZE, CENTER_Y + SIZE),
         (CENTER_X - SIZE, CENTER_Y - SIZE),
     ]
+    steps_per_side = 30
 
 def move_triangle():
     print("Triangle is moving")
