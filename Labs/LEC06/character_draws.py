@@ -21,6 +21,7 @@ def handle_events():
             running = False
 
 def render_frame(x, y):
+    handle_events()
     clear_canvas()
     character.draw(x, y)
     update_canvas()
