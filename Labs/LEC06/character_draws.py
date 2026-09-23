@@ -12,14 +12,13 @@ SIZE = 100
 
 def move_circle():
     print("Circle is moving")
-    angle = 0
-    rad = math.radians(angle)
-    x = CENTER_X + SIZE * math.cos(rad)
-    y = CENTER_Y + SIZE * math.sin(rad)
-    clear_canvas()
-    character.draw(x, y)
-    update_canvas()
-    pass
+    for angle in range(0, 360, 2):
+        rad = math.radians(angle)
+        x = CENTER_X + SIZE * math.cos(rad)
+        y = CENTER_Y + SIZE * math.sin(rad)
+        clear_canvas()
+        character.draw(x, y)
+        update_canvas()
 
 def move_rectangle():
     print("Rectangle is moving")
