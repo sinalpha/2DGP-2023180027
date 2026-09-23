@@ -43,18 +43,7 @@ def move_rectangle():
         (CENTER_X - SIZE, CENTER_Y + SIZE),
         (CENTER_X - SIZE, CENTER_Y - SIZE),
     ]
-    steps_per_side = 30
-    for i in range(len(corners) - 1):
-        x1, y1 = corners[i]
-        x2, y2 = corners[i + 1]
-        for step in range(steps_per_side):
-            t = step / steps_per_side
-            x = x1 + (x2 - x1) * t
-            y = y1 + (y2 - y1) * t
-            clear_canvas()
-            character.draw(x, y)
-            update_canvas()
-            delay(0.01)
+    move_along_path(corners, steps_per_side=30)
 
 def move_triangle():
     print("Triangle is moving")
@@ -64,18 +53,7 @@ def move_triangle():
         (CENTER_X - SIZE, CENTER_Y - SIZE),
         (CENTER_X, CENTER_Y + SIZE),
     ]
-    steps_per_side = 40
-    for i in range(len(corners) - 1):
-        x1, y1 = corners[i]
-        x2, y2 = corners[i + 1]
-        for step in range(steps_per_side):
-            t = step / steps_per_side
-            x = x1 + (x2 - x1) * t
-            y = y1 + (y2 - y1) * t
-            clear_canvas()
-            character.draw(x, y)
-            update_canvas()
-            delay(0.01)
+    move_along_path(corners, steps_per_side=40)
 
 while True:
     move_circle()
