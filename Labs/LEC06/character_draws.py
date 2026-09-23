@@ -9,6 +9,7 @@ character = load_image('character.png')
 
 CENTER_X, CENTER_Y = 400, 300
 SIZE = 100
+running = True
 
 def render_frame(x, y):
     clear_canvas()
