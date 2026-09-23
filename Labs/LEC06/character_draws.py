@@ -70,10 +70,9 @@ def move_triangle():
     ]
     move_along_path(corners, steps_per_side=40)
 
-while True:
+while running:
     move_circle()
     move_rectangle()
     move_triangle()
-    pass
 
 close_canvas()
