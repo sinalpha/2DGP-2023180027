@@ -38,6 +38,10 @@ def move_rectangle():
             t = step / steps_per_side
             x = x1 + (x2 - x1) * t
             y = y1 + (y2 - y1) * t
+            clear_canvas()
+            character.draw(x, y)
+            update_canvas()
+            delay(0.01)
 
 def move_triangle():
     print("Triangle is moving")
