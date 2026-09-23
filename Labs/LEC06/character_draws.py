@@ -51,6 +51,7 @@ def move_triangle():
         (CENTER_X - SIZE, CENTER_Y - SIZE),
         (CENTER_X, CENTER_Y + SIZE),
     ]
+    steps_per_side = 40
 
 while True:
     move_circle()
