@@ -1,6 +1,7 @@
 # 실습 과제 진행
 from pico2d import *
 
+character = load_image('character.png')
 open_canvas(800, 600)
 
 def move_circle():
