@@ -11,6 +11,15 @@ CENTER_X, CENTER_Y = 400, 300
 SIZE = 100
 running = True
 
+def handle_events():
+    global running
+    events = get_events()
+    for event in events:
+        if event.type == SDL_QUIT:
+            running = False
+        elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
+            running = False
+
 def render_frame(x, y):
     clear_canvas()
     character.draw(x, y)
