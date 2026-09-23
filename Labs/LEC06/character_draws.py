@@ -22,10 +22,7 @@ def move_circle():
         rad = math.radians(angle)
         x = CENTER_X + SIZE * math.cos(rad)
         y = CENTER_Y + SIZE * math.sin(rad)
-        clear_canvas()
-        character.draw(x, y)
-        update_canvas()
-        delay(0.01)
+        render_frame(x, y)
 
 def move_rectangle():
     print("Rectangle is moving")
