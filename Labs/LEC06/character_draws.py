@@ -59,6 +59,10 @@ def move_triangle():
             t = step / steps_per_side
             x = x1 + (x2 - x1) * t
             y = y1 + (y2 - y1) * t
+            clear_canvas()
+            character.draw(x, y)
+            update_canvas()
+            delay(0.01)
 
 while True:
     move_circle()
