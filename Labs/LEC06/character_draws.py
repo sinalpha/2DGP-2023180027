@@ -16,6 +16,16 @@ def render_frame(x, y):
     update_canvas()
     delay(0.01)
 
+def move_along_path(corners, steps_per_side):
+    for i in range(len(corners) - 1):
+        x1, y1 = corners[i]
+        x2, y2 = corners[i + 1]
+        for step in range(steps_per_side):
+            t = step / steps_per_side
+            x = x1 + (x2 - x1) * t
+            y = y1 + (y2 - y1) * t
+            render_frame(x, y)
+
 def move_circle():
     print("Circle is moving")
     for angle in range(0, 360, 2):
