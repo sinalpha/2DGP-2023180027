@@ -10,6 +10,12 @@ character = load_image('character.png')
 CENTER_X, CENTER_Y = 400, 300
 SIZE = 100
 
+def render_frame(x, y):
+    clear_canvas()
+    character.draw(x, y)
+    update_canvas()
+    delay(0.01)
+
 def move_circle():
     print("Circle is moving")
     for angle in range(0, 360, 2):
