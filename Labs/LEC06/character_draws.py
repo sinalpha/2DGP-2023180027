@@ -61,63 +61,33 @@ def move_circle():
         y = CENTER_Y + SIZE * math.sin(rad)
         render_frame(x, y)
 
-def move_rectangle():
-    print("Rectangle is moving")
-#     # corners = [
-#     #     (CENTER_X - SIZE, CENTER_Y - SIZE),
-#     #     (CENTER_X + SIZE, CENTER_Y - SIZE),
-#     #     (CENTER_X + SIZE, CENTER_Y + SIZE),
-#     #     (CENTER_X - SIZE, CENTER_Y + SIZE),
-#     #     (CENTER_X - SIZE, CENTER_Y - SIZE),
-#     # ]
-    move_top_left_to_top_right()
-    move_top_right_to_bottom_right()
-    move_bottom_right_to_bottom_left()
-    move_bottom_left_to_top_left()
-#     # move_along_path(corners, steps_per_side=30)
-
 RECT_LEFT, RECT_RIGHT = 20, 780
 RECT_BOTTOM, RECT_TOP = 40, 550
 RECTANGLE_STEPS = 40
 
-def move_top_left_to_top_right():
-    move_line(RECT_LEFT, RECT_TOP, RECT_RIGHT, RECT_TOP, RECTANGLE_STEPS)
-
-def move_top_right_to_bottom_right():
-    move_line(RECT_RIGHT, RECT_TOP, RECT_RIGHT, RECT_BOTTOM, RECTANGLE_STEPS)
-
-def move_bottom_right_to_bottom_left():
-    move_line(RECT_RIGHT, RECT_BOTTOM, RECT_LEFT, RECT_BOTTOM, RECTANGLE_STEPS)
-
-def move_bottom_left_to_top_left():
-    move_line(RECT_LEFT, RECT_BOTTOM, RECT_LEFT, RECT_TOP, RECTANGLE_STEPS)
-
-def move_triangle():
-    print("Triangle is moving")
-    move_top_to_bottom_left()
-    move_bottom_left_to_bottom_right()
-    move_bottom_right_to_top()
-#     # corners = [
-#     #     (CENTER_X, CENTER_Y + SIZE),
-#     #     (CENTER_X + SIZE, CENTER_Y - SIZE),
-#     #     (CENTER_X - SIZE, CENTER_Y - SIZE),
-#     #     (CENTER_X, CENTER_Y + SIZE),
-#     # ]
-#     # move_along_path(corners, steps_per_side=40)
+def move_rectangle():
+    print("Rectangle is moving")
+    rectangle = [
+        (RECT_LEFT, RECT_TOP),
+        (RECT_RIGHT, RECT_TOP),
+        (RECT_RIGHT, RECT_BOTTOM),
+        (RECT_LEFT, RECT_BOTTOM),
+    ]
+    move_polygon(rectangle, RECTANGLE_STEPS)
 
 TOP_X, TOP_Y = CENTER_X, CENTER_Y + SIZE
 LEFT_X, LEFT_Y = CENTER_X - SIZE, CENTER_Y - SIZE
 RIGHT_X, RIGHT_Y = CENTER_X + SIZE, CENTER_Y - SIZE
 TRIANGLE_STEPS = 40
 
-def move_top_to_bottom_left():
-    move_line(TOP_X, TOP_Y, LEFT_X, LEFT_Y, TRIANGLE_STEPS)
-
-def move_bottom_left_to_bottom_right():
-    move_line(LEFT_X, LEFT_Y, RIGHT_X, RIGHT_Y, TRIANGLE_STEPS)
-
-def move_bottom_right_to_top():
-    move_line(RIGHT_X, RIGHT_Y, TOP_X, TOP_Y, TRIANGLE_STEPS)
+def move_triangle():
+    print("Triangle is moving")
+    triangle = [
+        (TOP_X, TOP_Y),
+        (LEFT_X, LEFT_Y),
+        (RIGHT_X, RIGHT_Y),
+    ]
+    move_polygon(triangle, TRIANGLE_STEPS)
 
 while True:
     print("Game Loop Start")
