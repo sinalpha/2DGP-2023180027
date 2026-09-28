@@ -85,7 +85,9 @@ def move_bottom_left_to_top_left():
 
 def move_triangle():
     print("Triangle is moving")
-    pass
+    move_top_to_bottom_left()
+    move_bottom_left_to_bottom_right()
+    move_bottom_right_to_top()
 #     # corners = [
 #     #     (CENTER_X, CENTER_Y + SIZE),
 #     #     (CENTER_X + SIZE, CENTER_Y - SIZE),
@@ -94,6 +96,14 @@ def move_triangle():
 #     # ]
 #     # move_along_path(corners, steps_per_side=40)
     
+def move_top_to_bottom_left():
+    pass
+
+def move_bottom_left_to_bottom_right():
+    pass
+
+def move_bottom_right_to_top():
+    pass
 
 while True:
     print("Game Loop Start")
