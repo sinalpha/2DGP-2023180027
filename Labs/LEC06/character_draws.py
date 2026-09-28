@@ -41,23 +41,9 @@ def move_polygon(points, steps):
         x2, y2 = points[(i + 1) % len(points)]
         move_line(x1, y1, x2, y2, steps)
 
-# def move_along_path(corners, steps_per_side):
-#     for i in range(len(corners) - 1):
-#         x1, y1 = corners[i]
-#         x2, y2 = corners[i + 1]
-#         for step in range(steps_per_side):
-#             if not running:
-#                 return
-#             t = step / steps_per_side
-#             x = x1 + (x2 - x1) * t
-#             y = y1 + (y2 - y1) * t
-#             render_frame(x, y)
-
-
 CIRCLE_ANGLE_STEP = 2
 
 def move_circle():
-    print("Circle is moving")
     for angle in range(0, 360, CIRCLE_ANGLE_STEP):
         if not running:
             return
@@ -71,7 +57,6 @@ RECT_BOTTOM, RECT_TOP = 40, 550
 RECTANGLE_STEPS = 40
 
 def move_rectangle():
-    print("Rectangle is moving")
     rectangle = [
         (RECT_LEFT, RECT_TOP),
         (RECT_RIGHT, RECT_TOP),
@@ -86,7 +71,6 @@ RIGHT_X, RIGHT_Y = CENTER_X + SIZE, CENTER_Y - SIZE
 TRIANGLE_STEPS = 40
 
 def move_triangle():
-    print("Triangle is moving")
     triangle = [
         (TOP_X, TOP_Y),
         (LEFT_X, LEFT_Y),
@@ -95,7 +79,6 @@ def move_triangle():
     move_polygon(triangle, TRIANGLE_STEPS)
 
 while running:
-    print("Game Loop Start")
     move_circle()
     move_rectangle()
     move_triangle()
