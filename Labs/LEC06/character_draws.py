@@ -109,7 +109,11 @@ def move_top_to_bottom_left():
         render_frame(x, y)
 
 def move_bottom_left_to_bottom_right():
-    pass
+    for step in range(TRIANGLE_STEPS):
+        t = step / TRIANGLE_STEPS
+        x = LEFT_X + (RIGHT_X - LEFT_X) * t
+        y = LEFT_Y + (RIGHT_Y - LEFT_Y) * t
+        render_frame(x, y)
 
 def move_bottom_right_to_top():
     pass
