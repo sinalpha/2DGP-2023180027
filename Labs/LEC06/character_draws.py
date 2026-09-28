@@ -25,6 +25,13 @@ def render_frame(x, y):
     update_canvas()
     delay(0.01)
 
+def move_line(x1, y1, x2, y2, steps):
+    for step in range(steps):
+        t = step / steps
+        x = x1 + (x2 - x1) * t
+        y = y1 + (y2 - y1) * t
+        render_frame(x, y)
+
 # def move_along_path(corners, steps_per_side):
 #     for i in range(len(corners) - 1):
 #         x1, y1 = corners[i]
