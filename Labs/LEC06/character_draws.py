@@ -64,6 +64,8 @@ def move_rectangle():
 #     # move_along_path(corners, steps_per_side=30)
 
 def move_top_left_to_top_right():
+    for x in range(0, 800, 2):
+        render_frame(x, 550)
     pass
 
 def move_top_right_to_bottom_right():
