@@ -95,7 +95,12 @@ def move_triangle():
 #     #     (CENTER_X, CENTER_Y + SIZE),
 #     # ]
 #     # move_along_path(corners, steps_per_side=40)
-    
+
+TOP_X, TOP_Y = CENTER_X, CENTER_Y + SIZE
+LEFT_X, LEFT_Y = CENTER_X - SIZE, CENTER_Y - SIZE
+RIGHT_X, RIGHT_Y = CENTER_X + SIZE, CENTER_Y - SIZE
+TRIANGLE_STEPS = 40
+
 def move_top_to_bottom_left():
     pass
 
