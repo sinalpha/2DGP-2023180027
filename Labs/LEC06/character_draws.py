@@ -69,11 +69,13 @@ def move_top_left_to_top_right():
     pass
 
 def move_top_right_to_bottom_right():
-    for y in range(550, 0, -2):
+    for y in range(550, 40, -2):
         render_frame(780, y)
     pass
 
 def move_bottom_right_to_bottom_left():
+    for x in range(780, 0, -2):
+        render_frame(x, 40)
     pass
 
 def move_bottom_left_to_top_left():
