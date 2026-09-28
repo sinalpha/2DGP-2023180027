@@ -2,7 +2,7 @@
 from pico2d import *
 # import math
 
-# open_canvas(800, 600)
+open_canvas(800, 600)
 
 # # 과제를 완성하였음.
 
@@ -82,4 +82,4 @@ while True:
     move_rectangle()
     move_triangle()
 
-# close_canvas()
+close_canvas()
