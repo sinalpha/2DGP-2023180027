@@ -79,6 +79,8 @@ def move_bottom_right_to_bottom_left():
     pass
 
 def move_bottom_left_to_top_left():
+    for y in range(40, 550, 2):
+        render_frame(20, y)
     pass
 
 def move_triangle():
