@@ -116,7 +116,11 @@ def move_bottom_left_to_bottom_right():
         render_frame(x, y)
 
 def move_bottom_right_to_top():
-    pass
+    for step in range(TRIANGLE_STEPS):
+        t = step / TRIANGLE_STEPS
+        x = RIGHT_X + (TOP_X - RIGHT_X) * t
+        y = RIGHT_Y + (TOP_Y - RIGHT_Y) * t
+        render_frame(x, y)
 
 while True:
     print("Game Loop Start")
