@@ -9,6 +9,7 @@ character = load_image('character.png')
 CENTER_X, CENTER_Y = 400, 300
 SIZE = 100
 running = True
+FRAME_DELAY = 0.01
 
 def handle_events():
     global running
@@ -24,7 +25,7 @@ def render_frame(x, y):
     clear_canvas()
     character.draw(x, y)
     update_canvas()
-    delay(0.01)
+    delay(FRAME_DELAY)
 
 def move_line(x1, y1, x2, y2, steps):
     for step in range(steps):
