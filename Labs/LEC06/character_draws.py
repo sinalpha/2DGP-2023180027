@@ -32,6 +32,12 @@ def move_line(x1, y1, x2, y2, steps):
         y = y1 + (y2 - y1) * t
         render_frame(x, y)
 
+def move_polygon(points, steps):
+    for i in range(len(points)):
+        x1, y1 = points[i]
+        x2, y2 = points[(i + 1) % len(points)]
+        move_line(x1, y1, x2, y2, steps)
+
 # def move_along_path(corners, steps_per_side):
 #     for i in range(len(corners) - 1):
 #         x1, y1 = corners[i]
