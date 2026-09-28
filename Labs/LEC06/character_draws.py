@@ -109,25 +109,13 @@ RIGHT_X, RIGHT_Y = CENTER_X + SIZE, CENTER_Y - SIZE
 TRIANGLE_STEPS = 40
 
 def move_top_to_bottom_left():
-    for step in range(TRIANGLE_STEPS):
-        t = step / TRIANGLE_STEPS
-        x = TOP_X + (LEFT_X - TOP_X) * t
-        y = TOP_Y + (LEFT_Y - TOP_Y) * t
-        render_frame(x, y)
+    move_line(TOP_X, TOP_Y, LEFT_X, LEFT_Y, TRIANGLE_STEPS)
 
 def move_bottom_left_to_bottom_right():
-    for step in range(TRIANGLE_STEPS):
-        t = step / TRIANGLE_STEPS
-        x = LEFT_X + (RIGHT_X - LEFT_X) * t
-        y = LEFT_Y + (RIGHT_Y - LEFT_Y) * t
-        render_frame(x, y)
+    move_line(LEFT_X, LEFT_Y, RIGHT_X, RIGHT_Y, TRIANGLE_STEPS)
 
 def move_bottom_right_to_top():
-    for step in range(TRIANGLE_STEPS):
-        t = step / TRIANGLE_STEPS
-        x = RIGHT_X + (TOP_X - RIGHT_X) * t
-        y = RIGHT_Y + (TOP_Y - RIGHT_Y) * t
-        render_frame(x, y)
+    move_line(RIGHT_X, RIGHT_Y, TOP_X, TOP_Y, TRIANGLE_STEPS)
 
 while True:
     print("Game Loop Start")
