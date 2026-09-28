@@ -4,8 +4,6 @@ from pico2d import *
 
 open_canvas(800, 600)
 
-# # 과제를 완성하였음.
-
 character = load_image('character.png')
 
 # CENTER_X, CENTER_Y = 400, 300
@@ -21,12 +19,11 @@ character = load_image('character.png')
 #         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
 #             running = False
 
-# def render_frame(x, y):
-#     handle_events()
-#     clear_canvas()
-#     character.draw(x, y)
-#     update_canvas()
-#     delay(0.01)
+def render_frame(x, y):
+    clear_canvas()
+    character.draw(x, y)
+    update_canvas()
+    delay(0.01)
 
 # def move_along_path(corners, steps_per_side):
 #     for i in range(len(corners) - 1):
@@ -43,18 +40,13 @@ character = load_image('character.png')
 
 def move_circle():
     print("Circle is moving")
-    pass
 #     # for angle in range(0, 360, 2):
 #     #     if not running:
 #     #         return
 #     #     rad = math.radians(angle)
 #     #     x = CENTER_X + SIZE * math.cos(rad)
 #     #     y = CENTER_Y + SIZE * math.sin(rad)
-    #     render_frame(x, y)
-    clear_canvas()
-    character.draw(0, 550)
-    update_canvas()
-    delay(0.01)
+    render_frame(0, 550)
 
 def move_rectangle():
     print("Rectangle is moving")
@@ -82,6 +74,7 @@ def move_triangle():
 
 while True:
     print("Game Loop Start")
+
 
     
     move_circle()
