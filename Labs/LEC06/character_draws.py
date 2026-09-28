@@ -41,8 +41,9 @@ from pico2d import *
 #             render_frame(x, y)
 
 
-# def move_circle():
-#     print("Circle is moving")
+def move_circle():
+    print("Circle is moving")
+    pass
 #     # for angle in range(0, 360, 2):
 #     #     if not running:
 #     #         return
@@ -51,8 +52,9 @@ from pico2d import *
 #     #     y = CENTER_Y + SIZE * math.sin(rad)
 #     #     render_frame(x, y)
 
-# def move_rectangle():
-#     print("Rectangle is moving")
+def move_rectangle():
+    print("Rectangle is moving")
+    pass
 #     # corners = [
 #     #     (CENTER_X - SIZE, CENTER_Y - SIZE),
 #     #     (CENTER_X + SIZE, CENTER_Y - SIZE),
@@ -62,8 +64,9 @@ from pico2d import *
 #     # ]
 #     # move_along_path(corners, steps_per_side=30)
 
-# def move_triangle():
-#     print("Triangle is moving")
+def move_triangle():
+    print("Triangle is moving")
+    pass
 #     # corners = [
 #     #     (CENTER_X, CENTER_Y + SIZE),
 #     #     (CENTER_X + SIZE, CENTER_Y - SIZE),
@@ -71,12 +74,12 @@ from pico2d import *
 #     #     (CENTER_X, CENTER_Y + SIZE),
 #     # ]
 #     # move_along_path(corners, steps_per_side=40)
-
+    
 
 while True:
     print("Game Loop Start")
-    # move_circle()
-    # move_rectangle()
-    # move_triangle()
+    move_circle()
+    move_rectangle()
+    move_triangle()
 
 # close_canvas()
