@@ -28,6 +28,8 @@ def render_frame(x, y):
 
 def move_line(x1, y1, x2, y2, steps):
     for step in range(steps):
+        if not running:
+            return
         t = step / steps
         x = x1 + (x2 - x1) * t
         y = y1 + (y2 - y1) * t
@@ -55,8 +57,8 @@ def move_polygon(points, steps):
 def move_circle():
     print("Circle is moving")
     for angle in range(0, 360, 2):
-#     #     if not running:
-#     #         return
+        if not running:
+            return
         rad = math.radians(angle)
         x = CENTER_X + SIZE * math.cos(rad)
         y = CENTER_Y + SIZE * math.sin(rad)
