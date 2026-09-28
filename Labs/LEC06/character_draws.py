@@ -6,7 +6,7 @@ open_canvas(800, 600)
 
 # # 과제를 완성하였음.
 
-# character = load_image('character.png')
+character = load_image('character.png')
 
 # CENTER_X, CENTER_Y = 400, 300
 # SIZE = 100
@@ -50,7 +50,11 @@ def move_circle():
 #     #     rad = math.radians(angle)
 #     #     x = CENTER_X + SIZE * math.cos(rad)
 #     #     y = CENTER_Y + SIZE * math.sin(rad)
-#     #     render_frame(x, y)
+    #     render_frame(x, y)
+    clear_canvas()
+    character.draw(0, 550)
+    update_canvas()
+    delay(0.01)
 
 def move_rectangle():
     print("Rectangle is moving")
@@ -78,6 +82,8 @@ def move_triangle():
 
 while True:
     print("Game Loop Start")
+
+    
     move_circle()
     move_rectangle()
     move_triangle()
