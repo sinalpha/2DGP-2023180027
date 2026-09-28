@@ -70,6 +70,10 @@ def move_rectangle():
     move_bottom_left_to_top_left()
 #     # move_along_path(corners, steps_per_side=30)
 
+RECT_LEFT, RECT_RIGHT = 20, 780
+RECT_BOTTOM, RECT_TOP = 40, 550
+RECTANGLE_STEPS = 40
+
 def move_top_left_to_top_right():
     for x in range(0, 780, 2):
         render_frame(x, 550)
