@@ -1,5 +1,5 @@
 # # 실습 과제 진행
-# from pico2d import *
+from pico2d import *
 # import math
 
 # open_canvas(800, 600)
@@ -73,9 +73,10 @@
 #     # move_along_path(corners, steps_per_side=40)
 
 
-# while running:
-#     move_circle()
-#     move_rectangle()
-#     move_triangle()
+while True:
+    print("Game Loop Start")
+    # move_circle()
+    # move_rectangle()
+    # move_triangle()
 
 # close_canvas()
