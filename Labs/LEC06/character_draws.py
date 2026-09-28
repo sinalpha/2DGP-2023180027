@@ -102,7 +102,11 @@ RIGHT_X, RIGHT_Y = CENTER_X + SIZE, CENTER_Y - SIZE
 TRIANGLE_STEPS = 40
 
 def move_top_to_bottom_left():
-    pass
+    for step in range(TRIANGLE_STEPS):
+        t = step / TRIANGLE_STEPS
+        x = TOP_X + (LEFT_X - TOP_X) * t
+        y = TOP_Y + (LEFT_Y - TOP_Y) * t
+        render_frame(x, y)
 
 def move_bottom_left_to_bottom_right():
     pass
