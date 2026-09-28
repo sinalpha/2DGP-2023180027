@@ -75,24 +75,16 @@ RECT_BOTTOM, RECT_TOP = 40, 550
 RECTANGLE_STEPS = 40
 
 def move_top_left_to_top_right():
-    for x in range(0, 780, 2):
-        render_frame(x, 550)
-    pass
+    move_line(RECT_LEFT, RECT_TOP, RECT_RIGHT, RECT_TOP, RECTANGLE_STEPS)
 
 def move_top_right_to_bottom_right():
-    for y in range(550, 40, -2):
-        render_frame(780, y)
-    pass
+    move_line(RECT_RIGHT, RECT_TOP, RECT_RIGHT, RECT_BOTTOM, RECTANGLE_STEPS)
 
 def move_bottom_right_to_bottom_left():
-    for x in range(780, 0, -2):
-        render_frame(x, 40)
-    pass
+    move_line(RECT_RIGHT, RECT_BOTTOM, RECT_LEFT, RECT_BOTTOM, RECTANGLE_STEPS)
 
 def move_bottom_left_to_top_left():
-    for y in range(40, 550, 2):
-        render_frame(20, y)
-    pass
+    move_line(RECT_LEFT, RECT_BOTTOM, RECT_LEFT, RECT_TOP, RECTANGLE_STEPS)
 
 def move_triangle():
     print("Triangle is moving")
