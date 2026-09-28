@@ -50,7 +50,6 @@ def move_circle():
 
 def move_rectangle():
     print("Rectangle is moving")
-    pass
 #     # corners = [
 #     #     (CENTER_X - SIZE, CENTER_Y - SIZE),
 #     #     (CENTER_X + SIZE, CENTER_Y - SIZE),
@@ -58,7 +57,23 @@ def move_rectangle():
 #     #     (CENTER_X - SIZE, CENTER_Y + SIZE),
 #     #     (CENTER_X - SIZE, CENTER_Y - SIZE),
 #     # ]
+    move_top_left_to_top_right()
+    move_top_right_to_bottom_right()
+    move_bottom_right_to_bottom_left()
+    move_bottom_left_to_top_left()
 #     # move_along_path(corners, steps_per_side=30)
+
+def move_top_left_to_top_right():
+    pass
+
+def move_top_right_to_bottom_right():
+    pass
+
+def move_bottom_right_to_bottom_left():
+    pass
+
+def move_bottom_left_to_top_left():
+    pass
 
 def move_triangle():
     print("Triangle is moving")
