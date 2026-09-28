@@ -92,7 +92,7 @@ def move_triangle():
     ]
     move_polygon(triangle, TRIANGLE_STEPS)
 
-while True:
+while running:
     print("Game Loop Start")
     move_circle()
     move_rectangle()
