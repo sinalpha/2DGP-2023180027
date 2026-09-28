@@ -54,9 +54,11 @@ def move_polygon(points, steps):
 #             render_frame(x, y)
 
 
+CIRCLE_ANGLE_STEP = 2
+
 def move_circle():
     print("Circle is moving")
-    for angle in range(0, 360, 2):
+    for angle in range(0, 360, CIRCLE_ANGLE_STEP):
         if not running:
             return
         rad = math.radians(angle)
