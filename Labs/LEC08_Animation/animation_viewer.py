@@ -65,7 +65,8 @@ def draw_frame(x, y, w, h):
     update_canvas()
 
 
-def play_animation(frames, frame_delay):
+def play_animation(name, frames, frame_delay):
+    print(f'{name}: {len(frames)} frames')
     for _ in range(REPEAT_COUNT):
         for x, y, w, h in frames:
             if not running:
@@ -81,7 +82,7 @@ background = load_image('TUK_GROUND.png')
 
 while running:
     for name, frame_delay, frames in ANIMATIONS:
-        play_animation(frames, frame_delay)
+        play_animation(name, frames, frame_delay)
         if not running:
             break
 
