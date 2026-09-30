@@ -36,15 +36,19 @@ ANIMATIONS = [
 ]
 
 running = True
+paused = False
 
 
 def handle_events():
-    global running
+    global running, paused
     for event in get_events():
         if event.type == SDL_QUIT:
             running = False
-        elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
-            running = False
+        elif event.type == SDL_KEYDOWN:
+            if event.key == SDLK_ESCAPE:
+                running = False
+            elif event.key == SDLK_SPACE:
+                paused = not paused
 
 
 def wait(seconds):
@@ -52,7 +56,8 @@ def wait(seconds):
     while elapsed < seconds and running:
         handle_events()
         delay(WAIT_STEP)
-        elapsed += WAIT_STEP
+        if not paused:
+            elapsed += WAIT_STEP
 
 
 def draw_frame(x, y, w, h):
