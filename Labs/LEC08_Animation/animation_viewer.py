@@ -107,6 +107,7 @@ open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
 sheet = load_image('sonic-sprite.png')
 background = load_image('TUK_GROUND.png')
 check_frames()
+print('SPACE: 일시정지, RIGHT: 다음 애니메이션, D: 경계 표시, ESC: 종료')
 
 while running:
     for name, frame_delay, frames in ANIMATIONS:
