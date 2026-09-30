@@ -4,7 +4,6 @@ from pico2d import *
 
 CANVAS_WIDTH, CANVAS_HEIGHT = 800, 600
 SHEET_HEIGHT = 525
-GROUND_Y = 140
 REPEAT_COUNT = 5
 PAUSE_TIME = 1.0
 WAIT_STEP = 0.01
@@ -39,6 +38,8 @@ ANIMATIONS = [
 MAX_FRAME_HEIGHT = max(h for _, _, frames in ANIMATIONS for _, _, _, h in frames)
 # 가장 큰 프레임이 화면 높이의 절반 이상이 되도록 확대
 SCALE = math.ceil(CANVAS_HEIGHT / 2 / MAX_FRAME_HEIGHT)
+# 가장 큰 프레임이 화면 세로 중앙에 오도록 바닥 높이 계산
+GROUND_Y = (CANVAS_HEIGHT - MAX_FRAME_HEIGHT * SCALE) // 2
 
 running = True
 paused = False
