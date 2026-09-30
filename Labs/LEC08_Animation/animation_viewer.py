@@ -57,6 +57,7 @@ def wait(seconds):
 
 def draw_frame(x, y, w, h):
     clear_canvas()
+    background.draw(CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2, CANVAS_WIDTH, CANVAS_HEIGHT)
     bottom = SHEET_HEIGHT - y - h
     sheet.clip_draw(x, bottom, w, h,
                     CANVAS_WIDTH // 2, GROUND_Y + h * SCALE // 2,
@@ -76,6 +77,7 @@ def play_animation(frames):
 
 open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
 sheet = load_image('sonic-sprite.png')
+background = load_image('TUK_GROUND.png')
 
 while running:
     for name, frames in ANIMATIONS:
