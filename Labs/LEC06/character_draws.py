@@ -1,4 +1,4 @@
-# # 실습 과제 진행
+# # 실습 과제 완성
 from pico2d import *
 import math
 
