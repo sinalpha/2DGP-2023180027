@@ -3,7 +3,6 @@ import math
 from pico2d import *
 
 CANVAS_WIDTH, CANVAS_HEIGHT = 800, 600
-SHEET_HEIGHT = 525
 REPEAT_COUNT = 5
 PAUSE_TIME = 1.0
 WAIT_STEP = 0.01
@@ -75,7 +74,7 @@ def wait(seconds):
 def draw_frame(x, y, w, h):
     clear_canvas()
     background.draw(CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2, CANVAS_WIDTH, CANVAS_HEIGHT)
-    bottom = SHEET_HEIGHT - y - h
+    bottom = sheet.h - y - h
     center_x = CANVAS_WIDTH // 2
     center_y = GROUND_Y + h * SCALE // 2
     sheet.clip_draw(x, bottom, w, h, center_x, center_y, w * SCALE, h * SCALE)
