@@ -17,3 +17,8 @@ ANIMATIONS = [
     ('attack2', 5, 4),
     ('attack3', 6, 3),
 ]
+
+open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
+sheet = load_image('SamuraiSheet.png')
+
+close_canvas()
