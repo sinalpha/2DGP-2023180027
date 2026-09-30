@@ -7,6 +7,7 @@ GROUND_Y = 140
 REPEAT_COUNT = 5
 PAUSE_TIME = 1.0
 FRAME_DELAY = 0.08
+WAIT_STEP = 0.01
 
 # 프레임 좌표 (x, y, w, h): 시트 이미지의 왼쪽 위 기준
 ANIMATIONS = [
@@ -46,6 +47,14 @@ def handle_events():
             running = False
 
 
+def wait(seconds):
+    elapsed = 0.0
+    while elapsed < seconds and running:
+        handle_events()
+        delay(WAIT_STEP)
+        elapsed += WAIT_STEP
+
+
 def draw_frame(x, y, w, h):
     clear_canvas()
     bottom = SHEET_HEIGHT - y - h
@@ -59,8 +68,8 @@ def play_animation(frames):
     for _ in range(REPEAT_COUNT):
         for x, y, w, h in frames:
             draw_frame(x, y, w, h)
-            delay(FRAME_DELAY)
-    delay(PAUSE_TIME)
+            wait(FRAME_DELAY)
+    wait(PAUSE_TIME)
 
 
 open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
