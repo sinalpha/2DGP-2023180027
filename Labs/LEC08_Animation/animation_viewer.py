@@ -6,29 +6,29 @@ SCALE = 8
 GROUND_Y = 140
 REPEAT_COUNT = 5
 PAUSE_TIME = 1.0
-FRAME_DELAY = 0.08
 WAIT_STEP = 0.01
 
+# (이름, 프레임 딜레이, 프레임 좌표 목록)
 # 프레임 좌표 (x, y, w, h): 시트 이미지의 왼쪽 위 기준
 ANIMATIONS = [
-    ('idle', [
+    ('idle', 0.12, [
         (1, 39, 29, 39), (31, 40, 26, 38), (58, 39, 28, 39), (86, 40, 30, 38),
         (118, 40, 30, 38), (150, 40, 30, 38), (182, 40, 29, 38),
     ]),
-    ('walk', [
+    ('walk', 0.08, [
         (8, 80, 26, 37), (37, 80, 27, 37), (65, 80, 31, 38), (97, 80, 37, 37),
         (135, 80, 32, 35), (170, 79, 32, 38), (206, 79, 26, 38), (238, 80, 24, 37),
         (263, 80, 30, 37), (295, 80, 36, 37), (334, 80, 32, 36), (370, 79, 29, 38),
     ]),
-    ('dash', [
+    ('dash', 0.06, [
         (1, 124, 33, 40), (39, 124, 35, 39), (89, 125, 35, 38),
         (130, 121, 34, 42), (181, 122, 34, 41), (228, 122, 33, 40),
     ]),
-    ('run', [
+    ('run', 0.05, [
         (1, 283, 29, 35), (36, 283, 30, 35), (72, 286, 39, 31),
         (123, 285, 39, 32), (172, 286, 39, 31), (218, 285, 38, 32),
     ]),
-    ('spin', [
+    ('spin', 0.04, [
         (1, 169, 29, 30), (35, 167, 29, 31), (67, 169, 30, 29),
         (98, 169, 31, 29), (131, 168, 29, 30), (162, 168, 29, 31),
         (193, 170, 30, 29), (230, 170, 31, 29), (268, 170, 30, 30),
@@ -65,13 +65,13 @@ def draw_frame(x, y, w, h):
     update_canvas()
 
 
-def play_animation(frames):
+def play_animation(frames, frame_delay):
     for _ in range(REPEAT_COUNT):
         for x, y, w, h in frames:
             if not running:
                 return
             draw_frame(x, y, w, h)
-            wait(FRAME_DELAY)
+            wait(frame_delay)
     wait(PAUSE_TIME)
 
 
@@ -80,8 +80,8 @@ sheet = load_image('sonic-sprite.png')
 background = load_image('TUK_GROUND.png')
 
 while running:
-    for name, frames in ANIMATIONS:
-        play_animation(frames)
+    for name, frame_delay, frames in ANIMATIONS:
+        play_animation(frames, frame_delay)
         if not running:
             break
 
