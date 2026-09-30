@@ -84,6 +84,12 @@ def draw_frame(x, y, w, h):
     update_canvas()
 
 
+def check_frames():
+    for name, _, frames in ANIMATIONS:
+        for x, y, w, h in frames:
+            assert x + w <= sheet.w and y + h <= sheet.h, f'{name} 프레임이 시트 밖: {(x, y, w, h)}'
+
+
 def play_animation(name, frames, frame_delay):
     global skip
     skip = False
@@ -100,6 +106,7 @@ def play_animation(name, frames, frame_delay):
 open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
 sheet = load_image('sonic-sprite.png')
 background = load_image('TUK_GROUND.png')
+check_frames()
 
 while running:
     for name, frame_delay, frames in ANIMATIONS:
