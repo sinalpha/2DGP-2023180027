@@ -1,8 +1,9 @@
+import math
+
 from pico2d import *
 
 CANVAS_WIDTH, CANVAS_HEIGHT = 800, 600
 SHEET_HEIGHT = 525
-SCALE = 8
 GROUND_Y = 140
 REPEAT_COUNT = 5
 PAUSE_TIME = 1.0
@@ -34,6 +35,10 @@ ANIMATIONS = [
         (193, 170, 30, 29), (230, 170, 31, 29), (268, 170, 30, 30),
     ]),
 ]
+
+MAX_FRAME_HEIGHT = max(h for _, _, frames in ANIMATIONS for _, _, _, h in frames)
+# 가장 큰 프레임이 화면 높이의 절반 이상이 되도록 확대
+SCALE = math.ceil(CANVAS_HEIGHT / 2 / MAX_FRAME_HEIGHT)
 
 running = True
 paused = False
