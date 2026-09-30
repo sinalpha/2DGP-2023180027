@@ -18,6 +18,17 @@ ANIMATIONS = [
     ('attack3', 6, 3),
 ]
 
+
+def draw_frame(row, frame):
+    clear_canvas()
+    left = frame * CELL_SIZE
+    bottom = SHEET_HEIGHT - (row + 1) * CELL_SIZE
+    sheet.clip_draw(left, bottom, CELL_SIZE, CELL_SIZE,
+                    CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2,
+                    CELL_SIZE * SCALE, CELL_SIZE * SCALE)
+    update_canvas()
+
+
 open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
 sheet = load_image('SamuraiSheet.png')
 
