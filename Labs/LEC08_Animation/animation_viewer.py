@@ -29,6 +29,14 @@ def draw_frame(row, frame):
     update_canvas()
 
 
+def play_animation(row, frame_count):
+    for _ in range(REPEAT_COUNT):
+        for frame in range(frame_count):
+            draw_frame(row, frame)
+            delay(FRAME_DELAY)
+    delay(PAUSE_TIME)
+
+
 open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
 sheet = load_image('SamuraiSheet.png')
 
