@@ -37,10 +37,11 @@ ANIMATIONS = [
 
 running = True
 paused = False
+skip = False
 
 
 def handle_events():
-    global running, paused
+    global running, paused, skip
     for event in get_events():
         if event.type == SDL_QUIT:
             running = False
@@ -49,11 +50,13 @@ def handle_events():
                 running = False
             elif event.key == SDLK_SPACE:
                 paused = not paused
+            elif event.key == SDLK_RIGHT:
+                skip = True
 
 
 def wait(seconds):
     elapsed = 0.0
-    while elapsed < seconds and running:
+    while elapsed < seconds and running and not skip:
         handle_events()
         delay(WAIT_STEP)
         if not paused:
@@ -71,10 +74,12 @@ def draw_frame(x, y, w, h):
 
 
 def play_animation(name, frames, frame_delay):
+    global skip
+    skip = False
     print(f'{name}: {len(frames)} frames')
     for _ in range(REPEAT_COUNT):
         for x, y, w, h in frames:
-            if not running:
+            if not running or skip:
                 return
             draw_frame(x, y, w, h)
             wait(frame_delay)
