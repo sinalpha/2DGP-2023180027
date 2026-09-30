@@ -38,10 +38,11 @@ ANIMATIONS = [
 running = True
 paused = False
 skip = False
+show_box = False
 
 
 def handle_events():
-    global running, paused, skip
+    global running, paused, skip, show_box
     for event in get_events():
         if event.type == SDL_QUIT:
             running = False
@@ -52,6 +53,8 @@ def handle_events():
                 paused = not paused
             elif event.key == SDLK_RIGHT:
                 skip = True
+            elif event.key == SDLK_d:
+                show_box = not show_box
 
 
 def wait(seconds):
@@ -67,9 +70,12 @@ def draw_frame(x, y, w, h):
     clear_canvas()
     background.draw(CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2, CANVAS_WIDTH, CANVAS_HEIGHT)
     bottom = SHEET_HEIGHT - y - h
-    sheet.clip_draw(x, bottom, w, h,
-                    CANVAS_WIDTH // 2, GROUND_Y + h * SCALE // 2,
-                    w * SCALE, h * SCALE)
+    center_x = CANVAS_WIDTH // 2
+    center_y = GROUND_Y + h * SCALE // 2
+    sheet.clip_draw(x, bottom, w, h, center_x, center_y, w * SCALE, h * SCALE)
+    if show_box:
+        draw_rectangle(center_x - w * SCALE // 2, GROUND_Y,
+                       center_x + w * SCALE // 2, GROUND_Y + h * SCALE)
     update_canvas()
 
 
