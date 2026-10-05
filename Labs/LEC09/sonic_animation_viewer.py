@@ -46,22 +46,17 @@ ACTIONS = [
     ]),
 ]
 
-open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
-image = load_image('sonic-sprite.png')
-
-running = True
-action_index = 0
-frame_index = 0
-repeat = 0
-resting = False
-last_time = get_time()
-while running:
+def handle_events():
+    global running
     for event in get_events():
         if event.type == SDL_QUIT:
             running = False
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             running = False
 
+
+def update():
+    global action_index, frame_index, repeat, resting, last_time
     frames = ACTIONS[action_index][2]
     if resting:
         if get_time() - last_time >= REST_TIME:
@@ -81,6 +76,8 @@ while running:
                 resting = True
         last_time = get_time()
 
+
+def draw():
     bottom, h, frames = ACTIONS[action_index]
     x, w, dx = frames[frame_index]
     clear_canvas()
@@ -88,6 +85,21 @@ while running:
                     CANVAS_WIDTH // 2 + dx * SCALE, CANVAS_HEIGHT // 2,
                     w * SCALE, h * SCALE)
     update_canvas()
+
+
+open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
+image = load_image('sonic-sprite.png')
+
+running = True
+action_index = 0
+frame_index = 0
+repeat = 0
+resting = False
+last_time = get_time()
+while running:
+    handle_events()
+    update()
+    draw()
     delay(0.01)
 
 close_canvas()
