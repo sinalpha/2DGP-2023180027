@@ -1,6 +1,9 @@
 from pico2d import *
 
-open_canvas(800, 600)
+CANVAS_WIDTH, CANVAS_HEIGHT = 800, 600
+SCALE = 6
+
+open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
 image = load_image('sonic-sprite.png')
 
 running = True
@@ -12,7 +15,7 @@ while running:
             running = False
 
     clear_canvas()
-    image.draw(400, 300)
+    image.draw(CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2)
     update_canvas()
     delay(0.01)
 
