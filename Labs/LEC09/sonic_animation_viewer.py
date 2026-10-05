@@ -35,13 +35,17 @@ ACTIONS = [
         (1, 24, 0), (31, 29, 0), (65, 20, 0), (90, 25, 0), (119, 25, 0), (149, 20, 0),
         (184, 40, 0), (232, 39, 0),
     ]),
+    (108, 40, [
+        (1, 27, 0), (31, 31, 0), (64, 31, 0), (99, 33, 0), (136, 32, 0), (176, 33, 0),
+        (217, 33, 0), (254, 33, 0),
+    ]),
 ]
 
 open_canvas(CANVAS_WIDTH, CANVAS_HEIGHT)
 image = load_image('sonic-sprite.png')
 
 running = True
-action_index = 7
+action_index = 8
 frame_index = 0
 last_time = get_time()
 while running:
