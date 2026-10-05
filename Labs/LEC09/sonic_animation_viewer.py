@@ -4,6 +4,7 @@ CANVAS_WIDTH, CANVAS_HEIGHT = 800, 600
 SCALE = 6
 FRAME_TIME = 0.1
 REPEAT_COUNT = 5
+REST_TIME = 1.0
 
 # (아래쪽 y, 높이, 프레임 목록)
 # 프레임 (x, 너비, 좌우 보정값): y는 pico2d 좌표(아래에서 위로)
@@ -52,6 +53,7 @@ running = True
 action_index = 0
 frame_index = 0
 repeat = 0
+resting = False
 last_time = get_time()
 while running:
     for event in get_events():
@@ -61,16 +63,22 @@ while running:
             running = False
 
     frames = ACTIONS[action_index][2]
-    if repeat < REPEAT_COUNT and get_time() - last_time >= FRAME_TIME:
+    if resting:
+        if get_time() - last_time >= REST_TIME:
+            action_index = (action_index + 1) % len(ACTIONS)
+            frame_index = 0
+            repeat = 0
+            resting = False
+            last_time = get_time()
+    elif get_time() - last_time >= FRAME_TIME:
         frame_index += 1
         if frame_index >= len(frames):
             repeat += 1
             if repeat < REPEAT_COUNT:
                 frame_index = 0
             else:
-                action_index = (action_index + 1) % len(ACTIONS)
-                frame_index = 0
-                repeat = 0
+                frame_index = len(frames) - 1
+                resting = True
         last_time = get_time()
 
     bottom, h, frames = ACTIONS[action_index]
