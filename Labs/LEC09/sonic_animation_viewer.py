@@ -1,10 +1,10 @@
 from pico2d import *
 
 CANVAS_WIDTH, CANVAS_HEIGHT = 800, 600
-SCALE = 6
+SCALE = 3
 FRAME_TIME = 0.1
 REPEAT_COUNT = 5
-REST_TIME = 1.0
+REST_TIME = 0.5
 
 # (아래쪽 y, 높이, 프레임 목록)
 # 프레임 (x, 너비, 좌우 보정값): y는 pico2d 좌표(아래에서 위로)
