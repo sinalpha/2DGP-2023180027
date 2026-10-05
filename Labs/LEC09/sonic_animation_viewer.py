@@ -15,7 +15,8 @@ while running:
             running = False
 
     clear_canvas()
-    image.clip_draw(1, 447, 29, 39, CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2)
+    image.clip_draw(1, 447, 29, 39, CANVAS_WIDTH // 2, CANVAS_HEIGHT // 2,
+                    29 * SCALE, 39 * SCALE)
     update_canvas()
     delay(0.01)
 
