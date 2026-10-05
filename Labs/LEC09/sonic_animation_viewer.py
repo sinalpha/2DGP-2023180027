@@ -2,6 +2,7 @@ from pico2d import *
 
 CANVAS_WIDTH, CANVAS_HEIGHT = 800, 600
 SCALE = 6
+FRAME_TIME = 0.1
 
 # (아래쪽 y, 높이, 프레임 목록)
 # 프레임 (x, 너비, 좌우 보정값): y는 pico2d 좌표(아래에서 위로)
@@ -18,6 +19,7 @@ image = load_image('sonic-sprite.png')
 running = True
 action_index = 0
 frame_index = 0
+last_time = get_time()
 while running:
     for event in get_events():
         if event.type == SDL_QUIT:
@@ -26,7 +28,9 @@ while running:
             running = False
 
     frames = ACTIONS[action_index][2]
-    frame_index = (frame_index + 1) % len(frames)
+    if get_time() - last_time >= FRAME_TIME:
+        frame_index = (frame_index + 1) % len(frames)
+        last_time = get_time()
 
     bottom, h, frames = ACTIONS[action_index]
     x, w, dx = frames[frame_index]
