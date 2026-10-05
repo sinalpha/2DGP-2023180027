@@ -25,6 +25,9 @@ while running:
         elif event.type == SDL_KEYDOWN and event.key == SDLK_ESCAPE:
             running = False
 
+    frames = ACTIONS[action_index][2]
+    frame_index = (frame_index + 1) % len(frames)
+
     bottom, h, frames = ACTIONS[action_index]
     x, w, dx = frames[frame_index]
     clear_canvas()
