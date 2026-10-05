@@ -46,6 +46,7 @@ ACTIONS = [
     ]),
 ]
 
+
 def handle_events():
     global running
     for event in get_events():
