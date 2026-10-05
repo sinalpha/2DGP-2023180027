@@ -67,12 +67,10 @@ while running:
             repeat += 1
             if repeat < REPEAT_COUNT:
                 frame_index = 0
-            elif action_index < len(ACTIONS) - 1:
-                action_index += 1
+            else:
+                action_index = (action_index + 1) % len(ACTIONS)
                 frame_index = 0
                 repeat = 0
-            else:
-                frame_index = len(frames) - 1
         last_time = get_time()
 
     bottom, h, frames = ACTIONS[action_index]
