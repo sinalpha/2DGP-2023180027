@@ -5,10 +5,13 @@ from sdl2 import (SDL_KEYDOWN, SDL_KEYUP, SDLK_LEFT, SDLK_RIGHT,
                   SDLK_SPACE)
 from transitions import Machine
 
+import game_world
+from ball import Ball
+
 
 class Boy:
     def __init__(self):
-        self.x, self.y = 400, 90
+        self.x, self.y = 400, 30
         self.frame = 0
         self.image = load_image('animation_sheet.png')
         self.idle_started_at = get_time()
@@ -18,7 +21,7 @@ class Boy:
 
         self.machine = Machine(
             model=self,
-            states=['IDLE', 'SLEEP', 'RUN'],
+            states=['IDLE', 'SLEEP', 'RUN', 'KICK'],
             transitions=[
                 {'trigger': 'fall_asleep',
                  'source': 'IDLE', 'dest': 'SLEEP'},
@@ -28,6 +31,10 @@ class Boy:
                  'source': ['IDLE', 'SLEEP'], 'dest': 'RUN'},
                 {'trigger': 'stop_run',
                  'source': 'RUN', 'dest': 'IDLE'},
+                {'trigger': 'start_kick',
+                 'source': ['IDLE', 'RUN'], 'dest': 'KICK'},
+                {'trigger': 'stop_kick',
+                 'source': 'KICK', 'dest': 'IDLE'},
             ],
             initial='IDLE',
             auto_transitions=False,
@@ -43,7 +50,23 @@ class Boy:
     def on_enter_RUN(self):
         self.frame = 0
 
+    def on_enter_KICK(self):
+        self.frame = 0
+        direction = 'right' if self.face_dir == 1 else 'left'
+        print('kicking', direction)
+        ball = Ball(self.x + self.face_dir * 50, self.y, self.face_dir * 15)
+        game_world.add_object(ball)
+
+    def on_exit_KICK(self):
+        print('exit')
+
     def handle_event(self, event):
+        if (event.type == SDL_KEYDOWN and
+                event.key == SDLK_SPACE and
+                self.state in ('IDLE', 'RUN')):
+            self.start_kick()
+            return
+
         if (event.type == SDL_KEYDOWN and
                 event.key == SDLK_SPACE and
                 self.state == 'SLEEP'):
@@ -81,6 +104,10 @@ class Boy:
             self.frame = (self.frame + 1) % 8
             self.x += self.dir * 5
             self.x = max(25, min(get_canvas_width() - 25, self.x))
+        elif self.state == 'KICK':
+            self.frame += 1
+            if self.frame >= 8:
+                self.stop_kick()
 
     def draw(self):
         if self.state == 'SLEEP':
